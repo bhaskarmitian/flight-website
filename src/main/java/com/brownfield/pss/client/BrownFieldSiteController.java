@@ -21,12 +21,6 @@ import org.springframework.web.client.RestTemplate;
 public class BrownFieldSiteController {
 	private static final Logger logger = LoggerFactory.getLogger(BrownFieldSiteController.class);
 
-	//RestTemplate searchClient = new RestTemplate();
-
-	//RestTemplate bookingClient = new RestTemplate();
-
-	//RestTemplate checkInClient = new RestTemplate();
-
 	@Bean
 	public RestTemplate getRestTemplate() {
 		return new RestTemplate();
@@ -50,10 +44,9 @@ public class BrownFieldSiteController {
 		return "search";
 	}
 
-	@RequestMapping(value = "/search1", method = RequestMethod.POST)
-	public Flight[] greetingSubmit1(@RequestHeader(value = "xCorrelationId", required = false) String xCorrelationId,
+	@RequestMapping(value = "/search", method = RequestMethod.POST)
+	public Flight[] greetingSubmit(@RequestHeader(value = "xCorrelationId", required = false) String xCorrelationId,
 			@RequestBody Flight flight) {
-
 		Flight[] flights = searchClient.postForObject("http://localhost:8090/search/get", flight, Flight[].class);
 		return flights;
 	}
