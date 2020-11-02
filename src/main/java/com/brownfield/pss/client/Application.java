@@ -10,13 +10,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+//import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+//import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.web.client.RestTemplate;
 
 //@EnableGlobalMethodSecurity
-@EnableWebSecurity
+//@EnableWebSecurity
 @SpringBootApplication
+@EnableDiscoveryClient
 public class Application implements CommandLineRunner {
 	private static final Logger logger = LoggerFactory.getLogger(Application.class);
 
